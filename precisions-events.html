@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Precision Events | Book Your Event</title>
+    <style>
+        :root {
+            --primary: #1a2a3a;
+            --secondary: #d4af37;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        h2:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 15px auto;
+        }
+        
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .form-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--secondary);
+            outline: none;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #c19b2c;
+            transform: translateY(-2px);
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .contact-info h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .info-item i {
+            margin-right: 15px;
+            color: var(--secondary);
+            font-size: 20px;
+        }
+        
+        .info-text h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .event-types {
+            margin-top: 30px;
+        }
+        
+        .event-types h4 {
+            margin-bottom: 15px;
+        }
+        
+        .event-checkboxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-group input {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .form-container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Precision Events Management</h1>
+            <p>Exclusive Events, Priceless Memories</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="success-message" id="successMessage">
+            <h3>Thank you for your inquiry!</h3>
+            <p>We've received your request and will contact you within 24 hours to discuss your event.</p>
+        </div>
+        
+        <h2>Plan Your Perfect Event</h2>
+        <div class="contact-intro">
+            <p>Ready to create unforgettable memories? Fill out the form below and our event specialists will contact you to discuss your vision, preferences, and requirements. We'll craft a personalized proposal just for you.</p>
+        </div>
+        
+        <div class="form-container">
+            <form id="eventForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name*</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventType">Event Type*</label>
+                    <select id="eventType" name="eventType" required>
+                        <option value="">Select Event Type</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="corporate">Corporate Event</option>
+                        <option value="conference">Conference</option>
+                        <option value="concert">Concert</option>
+                        <option value="banquet">Banquet/Luncheon</option>
+                        <option value="fundraiser">Fundraiser</option>
+                        <option value="trade-show">Trade Show</option>
+                        <option value="brand-activation">Brand Activation</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventDate">Estimated Event Date</label>
+                    <input type="date" id="eventDate" name="eventDate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="guestCount">Estimated Number of Guests</label>
+                    <input type="number" id="guestCount" name="guestCount" min="1">
+                </div>
+                
+                <div class="form-group event-types">
+                    <h4>Services Interested In (Select all that apply)</h4>
+                    <div class="event-checkboxes">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="service-design" name="services" value="design">
+                            <label for="service-design">Event Design</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="service-coordination" name="services" value="coordination">
+                            <label for="service-coordination">Coordination</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="service-decor" name="services" value="decor">
+                            <label for="service-decor">Décor & Styling</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="service-venue" name="services" value="venue">
+                            <label for="service-venue">Venue Selection</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="service-vendor" name="services" value="vendor">
+                            <label for="service-vendor">Vendor Management</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="service-floral" name="services" value="floral">
+                            <label for="service-floral">Floral Supplies</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Tell Us About Your Event*</label>
+                    <textarea id="message" name="message" required placeholder="Please describe your event vision, theme, special requirements, and any other details that will help us understand your needs."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget">Estimated Budget (BWP)</label>
+                    <select id="budget" name="budget">
+                        <option value="">Prefer not to say</option>
+                        <option value="5k-10k">5,000 - 10,000</option>
+                        <option value="10k-25k">10,000 - 25,000</option>
+                        <option value="25k-50k">25,000 - 50,000</option>
+                        <option value="50k-100k">50,000 - 100,000</option>
+                        <option value="100k+">100,000+</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn">Submit Request</button>
+            </form>
+            
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="info-text">
+                        <h4>Phone</h4>
+                        <p>+267 72 582 883</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="info-text">
+                        <h4>Email</h4>
+                        <p>info@precisionevents.co.bw</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="info-text">
+                        <h4>Address</h4>
+                        <p>Block 3, Gaborone, Botswana</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="info-text">
+                        <h4>Business Hours</h4>
+                        <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                        <p>Saturday: 9:00 AM - 1:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-hashtag"></i>
+                    <div class="info-text">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#" style="color: white; margin-right: 15px;"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" style="color: white; margin-right: 15px;"><i class="fab fa-instagram"></i></a>
+                            <a href="#" style="color: white; margin-right: 15px;"><i class="fab fa-twitter"></i></a>
+                            <a href="#" style="color: white;"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        document.getElementById('eventForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would normally send the form data to your server
+            // For this example, we'll just show the success message
+            
+            // Hide form and show success message
+            document.getElementById('eventForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+            
+            // In a real implementation, you would:
+            // 1. Collect form data
+            // const formData = new FormData(this);
+            // 
+            // 2. Send to server (using fetch or XMLHttpRequest)
+            // fetch('process-form.php', {
+            //     method: 'POST',
+            //     body: formData
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     if (data.success) {
+            //         show success message
+            //     } else {
+            //         show error message
+            //     }
+            // });
+        });
+    </script>
+</body>
+</html>
