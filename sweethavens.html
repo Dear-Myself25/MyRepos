@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Havens Bakery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --pastel-pink: #FFD6E0;
+            --pastel-peach: #FFE5D9;
+            --pastel-mint: #D8F3DC;
+            --pastel-lavender: #E2D1F9;
+            --pastel-blue: #D6E2FF;
+            --pastel-yellow: #FFF9D6;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFF9FB;
+            color: #5A5A5A;
+        }
+
+        .navbar {
+            background-color: var(--pastel-pink);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-peach));
+            padding: 4rem 0;
+            text-align: center;
+            color: #6D6875;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin-bottom: 25px;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .carousel-item img {
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .category-btn {
+            background-color: var(--pastel-lavender);
+            border: none;
+            color: #6D6875;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background-color: #6D6875;
+            color: white;
+        }
+
+        .price-tag {
+            font-weight: bold;
+            color: #6D6875;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background-color: var(--pastel-lavender);
+            padding: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Sweet Havens</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#order">Order</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Sweet Havens</h1>
+            <p class="lead">Artisan Bakery & Dessert Parlor</p>
+        </div>
+    </section>
+
+    <!-- Carousel -->
+    <section class="py-4">
+        <div class="container">
+            <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="Fresh pastries">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="Ice cream desserts">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="Specialty cakes">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-5" style="background-color: var(--pastel-peach);">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Menu</h2>
+            
+            <div class="text-center mb-4">
+                <button class="category-btn active" data-category="all">All Items</button>
+                <button class="category-btn" data-category="bakery">Bakery</button>
+                <button class="category-btn" data-category="icecream">Ice Cream</button>
+                <button class="category-btn" data-category="desserts">Desserts</button>
+            </div>
+
+            <div class="row">
+                <!-- Bakery Items -->
+                <div class="col-md-4 mb-4 menu-item" data-category="bakery">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img-top product-img" alt="Sourdough Bread">
+                        <div class="card-body">
+                            <h5>Sourdough Bread</h5>
+                            <p>Traditional artisan loaf with crisp crust</p>
+                            <p class="price-tag">BWP 32.99</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4 menu-item" data-category="bakery">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img-top product-img" alt="Chocolate Croissants">
+                        <div class="card-body">
+                            <h5>Chocolate Croissants</h5>
+                            <p>Buttery pastry with dark chocolate</p>
+                            <p class="price-tag">BWP 18.99</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ice Cream -->
+                <div class="col-md-4 mb-4 menu-item" data-category="icecream">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img-top product-img" alt="Artisan Ice Cream">
+                        <div class="card-body">
+                            <h5>Artisan Ice Cream</h5>
+                            <p>Handcrafted in small batches</p>
+                            <p class="price-tag">BWP 24.99/scoop</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="col-md-4 mb-4 menu-item" data-category="desserts">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img-top product-img" alt="Chocolate Cake">
+                        <div class="card-body">
+                            <h5>Chocolate Fudge Cake</h5>
+                            <p>Rich layers of chocolate goodness</p>
+                            <p class="price-tag">BWP 45.99/slice</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4 menu-item" data-category="desserts">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img-top product-img" alt="Fruit Tart">
+                        <div class="card-body">
+                            <h5>Fresh Fruit Tart</h5>
+                            <p>Seasonal fruits on vanilla pastry cream</p>
+                            <p class="price-tag">BWP 38.99</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4 menu-item" data-category="bakery">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1612203985729-707269543881?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img-top product-img" alt="Scones">
+                        <div class="card-body">
+                            <h5>Buttermilk Scones</h5>
+                            <p>Classic English-style with clotted cream</p>
+                            <p class="price-tag">BWP 22.99/pair</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="py-5" style="background-color: var(--pastel-yellow);">
+        <div class="container">
+            <h2 class="text-center mb-5">Place Your Order</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="product-card">
+                        <div class="card-body">
+                            <form id="orderForm">
+                                <div class="mb-3">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Order Items</label>
+                                    <select class="form-select" required>
+                                        <option value="">Select items</option>
+                                        <option>Sourdough Bread - BWP 32.99</option>
+                                        <option>Chocolate Croissants - BWP 18.99</option>
+                                        <option>Artisan Ice Cream - BWP 24.99/scoop</option>
+                                        <option>Chocolate Fudge Cake - BWP 45.99/slice</option>
+                                        <option>Fresh Fruit Tart - BWP 38.99</option>
+                                        <option>Buttermilk Scones - BWP 22.99/pair</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Delivery Date</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Special Requests</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn w-100" style="background-color: var(--pastel-pink);">Submit Order</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Sweet Havens</h5>
+                    <p>Artisan bakery & dessert shop in Ramotswa</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contact</h5>
+                    <p>123 Bakery Street<br>Gaborone, Botswana<br>Phone: +267 74 860 628<br>Email: orders@sweethavens.co.bw</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Hours</h5>
+                    <p>Mon-Fri: 7:30AM - 7PM<br>Sat-Sun: 8AM - 5PM</p>
+                </div>
+            </div>
+            <div class="text-center pt-3">
+                <p>&copy; 2025 Sweet Havens. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Category filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const menuItems = document.querySelectorAll('.menu-item');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const category = btn.dataset.category;
+                    
+                    menuItems.forEach(item => {
+                        if (category === 'all' || item.dataset.category === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Form submission
+            document.getElementById('orderForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your order! We will contact you shortly to confirm.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>

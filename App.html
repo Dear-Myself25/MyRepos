@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tipsy Tavern - Order Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo-container">
+                <i class="fas fa-glass-cheers logo-icon"></i>
+                <h1>The Tipsy Tavern</h1>
+            </div>
+            <div class="cart-icon-container">
+                <i class="fas fa-shopping-cart" id="cartIcon"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </header>
+
+        <nav class="category-nav">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="beer">Beers</button>
+            <button class="category-btn" data-category="cocktail">Cocktails</button>
+            <button class="category-btn" data-category="wine">Wine</button>
+            <button class="category-btn" data-category="spirits">Spirits</button>
+            <button class="category-btn" data-category="snacks">Snacks</button>
+        </nav>
+
+        <main class="menu-container">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search drinks...">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <div class="menu-items" id="menuItems">
+                <!-- Menu items will be loaded here dynamically -->
+            </div>
+        </main>
+
+        <div class="cart-overlay" id="cartOverlay">
+            <div class="cart-container">
+                <div class="cart-header">
+                    <h2>Your Order</h2>
+                    <button class="close-cart-btn" id="closeCartBtn">&times;</button>
+                </div>
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be loaded here dynamically -->
+                </div>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax (10%):</span>
+                        <span id="tax">$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                    <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-confirmation" id="orderConfirmation">
+            <div class="confirmation-content">
+                <i class="fas fa-check-circle confirmation-icon"></i>
+                <h2>Order Placed Successfully!</h2>
+                <p>Your order #<span id="orderNumber">12345</span> has been received.</p>
+                <button class="close-confirmation-btn" id="closeConfirmationBtn">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
